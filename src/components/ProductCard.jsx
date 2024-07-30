@@ -1,4 +1,5 @@
 import { Card, Button, Form, Row, Col } from "react-bootstrap"
+import PropTypes from "prop-types"
 
 function ProductCard(props) {
   const product = props.product
@@ -11,6 +12,13 @@ function ProductCard(props) {
       </Card.Body>
     </Card>
   )
+}
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
 }
 
 export default ProductCard
