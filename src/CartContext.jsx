@@ -1,5 +1,6 @@
 import { createContext, useState } from "react"
-import { productsArray, getProductData } from "./productsStore"
+import { getProductData } from "./productsStore"
+import PropTypes from "prop-types"
 
 export const CartContext = createContext({
   items: [],
@@ -11,6 +12,11 @@ export const CartContext = createContext({
 })
 
 export function CartProvider({ children }) {
+  // Rest of the code
+
+  CartProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+  }
   const [cartProducts, setCartProducts] = useState([])
 
   function getProductQuantity(id) {
